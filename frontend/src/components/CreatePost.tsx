@@ -3,6 +3,7 @@ import { Sparkles, Loader2, CheckCircle2 } from 'lucide-react';
 import { getRandomColor } from '../data/mockData';
 import type { Post } from '../data/mockData';
 import { useNavigate } from 'react-router-dom';
+import { endpoints } from '../config/api';
 
 const CreatePost = () => {
   const [step, setStep] = useState<'input' | 'generating' | 'review'>('input');
@@ -24,7 +25,7 @@ const CreatePost = () => {
       }
 
       try {
-        const response = await fetch('http://localhost:3000/api/v1/posts', {
+        const response = await fetch(endpoints.posts, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',

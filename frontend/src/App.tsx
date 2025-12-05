@@ -10,6 +10,7 @@ import CreatePost from './components/CreatePost';
 import Login from './pages/Login';
 import AdminDashboard from './pages/AdminDashboard';
 import type { Post } from './data/mockData';
+import { endpoints } from './config/api';
 
 // Keep INITIAL_POSTS as fallback/initial data
 const INITIAL_POSTS: Post[] = [
@@ -37,7 +38,7 @@ function App() {
 
   const fetchPosts = async () => {
     try {
-      const response = await fetch('http://localhost:3000/api/v1/posts?limit=20&sort=latest');
+      const response = await fetch(`${endpoints.posts}?limit=20&sort=latest`);
       if (response.ok) {
         const result = await response.json();
         if (result.success && Array.isArray(result.data)) {

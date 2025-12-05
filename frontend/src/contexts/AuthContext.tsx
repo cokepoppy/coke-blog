@@ -1,4 +1,5 @@
 import { createContext, useContext, useState, useEffect } from 'react';
+import { endpoints } from '../config/api';
 
 export type UserRole = 'admin' | 'editor' | 'author' | 'reader';
 
@@ -32,7 +33,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
 
   const login = async (email: string, password: string) => {
     // Using fetch to match design doc, but could use axios
-    const response = await fetch('http://localhost:3000/api/v1/auth/login', {
+    const response = await fetch(endpoints.login, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ email, password }),
@@ -73,7 +74,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     const token = localStorage.getItem('token');
     if (token) {
       try {
-        const response = await fetch('http://localhost:3000/api/v1/auth/me', {
+        const response = await fetch(endpoints.me, {
           headers: { Authorization: `Bearer ${token}` },
         });
 

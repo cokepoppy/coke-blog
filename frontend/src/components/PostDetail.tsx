@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { ArrowLeft, Clock, Share2, Twitter, Linkedin, Mail, Loader2 } from 'lucide-react';
 import type { Post } from '../data/mockData';
 import { useNavigate, useParams } from 'react-router-dom';
+import { endpoints } from '../config/api';
 
 const PostDetail = () => {
   const { id } = useParams();
@@ -16,7 +17,7 @@ const PostDetail = () => {
       
       try {
         setLoading(true);
-        const response = await fetch(`http://localhost:3000/api/v1/posts/${id}`);
+        const response = await fetch(endpoints.post(id));
         
         if (!response.ok) {
           throw new Error('文章不存在或无法加载');
