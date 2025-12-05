@@ -52,7 +52,7 @@ DB_DATABASE=$DB_NAME
 
 # JWT Secrets
 JWT_SECRET=$(openssl rand -base64 32)
-JWT_REFRESH_SECRET=$(openssl rand -base64 32)
+REFRESH_TOKEN_SECRET=$(openssl rand -base64 32)
 JWT_EXPIRES_IN=1h
 JWT_REFRESH_EXPIRES_IN=7d
 
