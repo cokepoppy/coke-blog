@@ -1,12 +1,10 @@
 module.exports = {
   apps: [{
     name: 'coke-blog-backend',
-    script: './src/app.ts',
+    script: './dist/app.js',
     interpreter: 'node',
-    interpreter_args: '--loader ts-node/esm',
     env: {
-      NODE_ENV: 'production',
-      TS_NODE_PROJECT: './tsconfig.json'
+      NODE_ENV: 'production'
     },
     watch: false,
     instances: 1,

@@ -25,6 +25,10 @@ echo "Installing backend dependencies..."
 cd backend
 sudo npm install
 
+# Build backend TypeScript
+echo "Building backend TypeScript..."
+sudo npm run build
+
 # Create backend .env file
 echo "Creating backend .env file..."
 sudo tee .env > /dev/null << ENV_FILE
