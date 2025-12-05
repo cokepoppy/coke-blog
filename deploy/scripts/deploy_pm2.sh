@@ -71,9 +71,9 @@ cd $APP_DIR
 sudo pm2 stop coke-blog-backend 2>/dev/null || true
 sudo pm2 delete coke-blog-backend 2>/dev/null || true
 
-# Start backend with PM2
+# Start backend with PM2 using ecosystem file
 cd backend
-sudo pm2 start src/app.ts --name coke-blog-backend --interpreter ts-node --watch false --env production
+sudo pm2 start ecosystem.config.js
 
 # Save PM2 configuration
 sudo pm2 save
