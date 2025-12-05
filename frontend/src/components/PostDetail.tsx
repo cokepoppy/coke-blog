@@ -3,11 +3,7 @@ import { ArrowLeft, Clock, Share2, Twitter, Linkedin, Mail, Loader2 } from 'luci
 import type { Post } from '../data/mockData';
 import { useNavigate, useParams } from 'react-router-dom';
 
-interface PostDetailProps {
-  posts: Post[];
-}
-
-const PostDetail = ({ posts }: PostDetailProps) => {
+const PostDetail = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const [post, setPost] = useState<Post | null>(null);

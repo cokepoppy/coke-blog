@@ -97,7 +97,7 @@ function App() {
           <main className="flex-grow">
             <Routes>
               <Route path="/" element={<BlogList posts={posts} />} />
-              <Route path="/posts/:id" element={<PostDetail posts={posts} />} />
+              <Route path="/posts/:id" element={<PostDetail />} />
               <Route path="/login" element={<Login />} />
               
               {/* Protected Routes */}
