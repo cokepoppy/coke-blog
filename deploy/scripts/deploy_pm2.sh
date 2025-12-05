@@ -23,7 +23,7 @@ cd $APP_DIR
 # Install backend dependencies
 echo "Installing backend dependencies..."
 cd backend
-sudo npm install --production
+sudo npm install
 
 # Create backend .env file
 echo "Creating backend .env file..."
