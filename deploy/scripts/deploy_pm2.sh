@@ -1,10 +1,17 @@
 #!/bin/bash
 set -e
 
+# 读取配置文件
+if [ -f "$(dirname $0)/config.sh" ]; then
+    source "$(dirname $0)/config.sh"
+else
+    echo "错误: 找不到配置文件 config.sh"
+    echo "请复制 config.sh.example 为 config.sh 并填入正确的配置"
+    exit 1
+fi
+
 APP_DIR="/opt/coke-blog"
 REPO_URL="https://github.com/cokepoppy/coke-blog.git"
-BACKEND_PORT=3020
-FRONTEND_PORT=5173
 
 echo "Deploying Coke Blog application..."
 
@@ -39,9 +46,9 @@ PORT=$BACKEND_PORT
 DB_TYPE=mysql
 DB_HOST=localhost
 DB_PORT=3306
-DB_USERNAME=coke_blog_user
-DB_PASSWORD=CokeBlog@2025SecurePass
-DB_DATABASE=coke_blog
+DB_USERNAME=$DB_USER
+DB_PASSWORD=$DB_PASSWORD
+DB_DATABASE=$DB_NAME
 
 # JWT Secrets
 JWT_SECRET=$(openssl rand -base64 32)
@@ -50,15 +57,15 @@ JWT_EXPIRES_IN=1h
 JWT_REFRESH_EXPIRES_IN=7d
 
 # Default Admin
-DEFAULT_ADMIN_EMAIL=admin@cokeblog.com
-DEFAULT_ADMIN_PASSWORD=CokeBlogAdmin@2025!Secure#Pass
+DEFAULT_ADMIN_EMAIL=$ADMIN_EMAIL
+DEFAULT_ADMIN_PASSWORD=$ADMIN_PASSWORD
 
 # Redis
 REDIS_HOST=localhost
 REDIS_PORT=6379
 
 # CORS
-CORS_ORIGIN=https://blog.coke-twitter.com
+CORS_ORIGIN=https://$DOMAIN
 ENV_FILE
 
 # Install frontend dependencies and build

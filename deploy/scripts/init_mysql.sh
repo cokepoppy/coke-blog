@@ -1,9 +1,14 @@
 #!/bin/bash
 set -e
 
-DB_NAME="coke_blog"
-DB_USER="coke_blog_user"
-DB_PASSWORD="CokeBlog@2025SecurePass"
+# 读取配置文件或环境变量
+if [ -f "$(dirname $0)/config.sh" ]; then
+    source "$(dirname $0)/config.sh"
+else
+    echo "错误: 找不到配置文件 config.sh"
+    echo "请复制 config.sh.example 为 config.sh 并填入正确的配置"
+    exit 1
+fi
 
 echo "Creating database and user for Coke Blog..."
 
@@ -15,4 +20,4 @@ FLUSH PRIVILEGES;
 MYSQL_SCRIPT
 
 echo "Database setup complete!"
-echo "DB: ${DB_NAME}, User: ${DB_USER}, Password: ${DB_PASSWORD}"
+echo "DB: ${DB_NAME}, User: ${DB_USER}"

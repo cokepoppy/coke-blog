@@ -50,3 +50,6 @@ frontend.log
 
 # Docker
 docker-compose.override.yml
+
+# Deployment config (contains sensitive passwords)
+deploy/scripts/config.sh

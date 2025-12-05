@@ -1,0 +1,22 @@
+#!/bin/bash
+# 部署配置文件
+# 复制此文件为 config.sh 并填入实际的配置值
+# 重要: config.sh 已添加到 .gitignore，不会被提交到 Git
+
+# 数据库配置
+DB_NAME="coke_blog"
+DB_USER="coke_blog_user"
+DB_PASSWORD="YOUR_SECURE_DATABASE_PASSWORD_HERE"
+
+# 管理员账户配置
+ADMIN_EMAIL="admin@example.com"
+ADMIN_PASSWORD="YOUR_SECURE_ADMIN_PASSWORD_HERE"
+
+# 后端端口
+BACKEND_PORT=3020
+
+# 前端端口
+FRONTEND_PORT=5173
+
+# 域名
+DOMAIN="blog.coke-twitter.com"
